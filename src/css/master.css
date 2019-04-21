@@ -1,0 +1,28 @@
+.beerContainer{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ededed;
+  margin: 1em;
+}
+
+
+.beerName{
+  /*font-style: italic;*/
+font-size: large
+}
+
+.fancy {
+  padding-left: 1em;
+
+}
+
+.beerStyle{
+  font-size: small;
+font-style: italic;
+}
+
+.beerTaste{
+  font-size: small;
+    color: red;
+
+}

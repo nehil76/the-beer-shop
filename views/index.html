@@ -1,0 +1,95 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+        <title>The beer store</title>
+        <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      <link rel="stylesheet" href="/src/css/master.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+ <div class="container">
+      <!--JavaScript at end of body for optimized loading-->
+
+      <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js'></script>
+
+      <!-- Compiled and minified JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+      <script type="text/javascript" src='/src/js/beer.js'></script>
+      <script type="text/javascript" src='/src/js/beer-ui.js'></script>
+      <div ng-app="beer">
+        <div ng-controller="homeController">
+
+              <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">The Beer Store<i class="fas fa-beer"></i></a>
+      <ul class="right hide-on-down">
+
+        <li><a  ng-click="showfilterBar()"><i class="fas fa-filter"></i></a></li>
+        <li><a  ng-click="showSearchBar()"><i class="material-icons">search</i></a></li>
+        <li> <a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="fas fa-shopping-cart"></i></a></li>
+
+      </ul>
+    </div>
+    <div class="nav-content">
+      <div ng-show="searchBar" class="input-field">
+              <input id="search" type="search" ng-model="searchbearbyname" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+
+    </div>
+    <div class="nav-content">
+      <div ng-show="filterBar">
+              <a ng-click="sortBy('abv')" class="waves-effect waves-light btn ">Alcohol</a>
+              <a ng-click="sortBy('ibu')" class="waves-effect waves-light btn">Bitterness</a>
+              <a ng-click="sortBy('ounces')" class="waves-effect waves-light btn">Quantity</a>
+            </div>
+
+    </div>
+  </nav>
+
+        <div class="beerShowcase">
+          <div class="beerContainer" ng-repeat="i in beerslist | orderBy:propertyName:reverse | filter:searchbearbyname">
+
+            <div class="beerName fancy">  {{i.name }}
+              <div class="beerStyle"> {{i.style || 'NA'}}, {{i.ounces || 'NA'}} ounce </div>
+              <div class="beerTaste"> {{i.bitterness}} </div>
+              <div class="beerTaste"> {{i.abv || '0'}}% alcohol </div>
+            </div>
+
+            <div>
+              <span ng-show="isbeerinCart(i.id)" class="left new badge"> beer added</span>
+                    <a class="waves-effect waves-light btn" ng-click="addBeerToCart(i.id)"><i class="fas fa-cart-plus"></i></a> </div>
+          </div>
+
+
+        </div>
+
+
+        <div id="modal1" class="modal modal-fixed-footer">
+           <div class="modal-content">
+             <h4>Modal Header</h4>
+             <p>A bunch of text</p>
+           </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+           </div>
+         </div>
+
+
+      </div> <!--homeController -->
+    </div> <!--ng- app -->
+  </div>
+    </body>
+  </html>
