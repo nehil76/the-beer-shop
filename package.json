@@ -1,0 +1,22 @@
+{
+  "name": "thebeerstudio",
+  "version": "1.0.0",
+  "description": "Beer store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "beer",
+    "node",
+    "express"
+  ],
+  "author": "Nehil",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "request": "^2.88.0"
+  }
+}
