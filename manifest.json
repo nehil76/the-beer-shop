@@ -1,0 +1,20 @@
+{
+    "name":"The beer store",
+    "short_name":"BeerStore",
+    "background_color":"#efb0b3",
+    "start_url":"/index",
+    "icons":[
+        {
+            "src": "/src/image/iconfinder_beer__128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+          },
+          {
+            "src": "/src/image/iconfinder_beer__256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+          }
+    ],
+    "display":"standalone",
+    "theme_color":"#ee6e73"
+}

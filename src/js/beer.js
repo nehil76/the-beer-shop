@@ -1,3 +1,10 @@
+if('serviceWorker' in navigator){
+  console.log("browser supported service worker");
+  navigator.serviceWorker.register("/sw.js").then(()=>{
+    console.log("service worker has been registered");
+  });
+}
+
 var app = angular.module('beer',['ng']);
 
 

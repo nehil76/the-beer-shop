@@ -28,8 +28,19 @@ app.use('/src',(req,res)=>{
 */
 app.use('/src',express.static(path.join(__dirname, 'src')));
 
-app.get('/',(req,res)=>{
+app.use('/manifest.json',(req,res)=>{
+  res.sendFile(path.join(__dirname, '/manifest.json'));
+});
+
+app.use('/sw.js',(req,res)=>{
+  res.sendFile(path.join(__dirname, '/sw.js'));
+});
+
+app.get('/index',(req,res)=>{
   res.render('index.html');
+});
+app.get('/fallback',(req,res)=>{
+  res.render('fallback.html');
 });
 
 app.listen(8080,()=>{
